@@ -1,20 +1,19 @@
 <?php
     global $auxLogin; // Permite acesso à variável externa
 
-    // Configurações de conexão ao banco de dados
-    $DATABASE_HOST = 'localhost';
-    $DATABASE_USER = 'root';
-    $DATABASE_PASS = '';
-    $DATABASE_NAME = 'onemarket';
-    $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+    $env = parse_ini_file(dirname(__DIR__) . DIRECTORY_SEPARATOR . '.env') ?: [];
+    $DATABASE_HOST = $env['DB_HOST'];
+    $DATABASE_USER = $env['DB_USER'];
+    $DATABASE_PASS = $env['DB_PASSWORD'];
+    $DATABASE_NAME = $env['DB_NAME'];
+    $DATABASE_PORT = (int) ($env['DB_PORT']);
+    $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME, $DATABASE_PORT);
 
-    //codificação
-    $con->set_charset("utf8mb4");
-
-    // Verificação de erro de conexão (opcional)
     if (mysqli_connect_errno()) {
         exit('Erro ao conectar ao MySQL: ' . mysqli_connect_error());
     }
+
+    $con->set_charset("utf8mb4");
 
     // Bloco de verificação de sessão (só executa se $auxLogin for false ou não definido)
     if (!isset($auxLogin) || $auxLogin === false) {
