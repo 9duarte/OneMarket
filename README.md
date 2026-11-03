@@ -41,8 +41,3 @@ Tecnologia Usadas
     - JavaScript
     - PHP
     - MYSQL
-
-Site online:
-    http://onemarket.byethost5.com
-    User: test
-    Password: 123456
