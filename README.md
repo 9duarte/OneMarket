@@ -1,36 +1,36 @@
 # OneMarket
 
-Aplicação web para gestão de orçamentos, fichas de trabalho, clientes, produtos e administradores. O projeto foi desenvolvido em PHP e JavaScript no âmbito da Prova de Aptidão Profissional (PAP) do curso de Programador de Informática.
+Web application for managing quotes, work sheets, clients, products, and administrators. The project was developed in PHP and JavaScript as part of the Professional Aptitude Project (PAP) for the Computer Programmer course.
 
-## Funcionalidades
+## Features
 
-- **Dashboard:** resumo de ganhos, progresso dos projetos, últimas ações e produtos fora de stock.
-- **Fichas de trabalho:** criação, edição, eliminação, histórico, impressão e galeria de fotografias por secção.
-- **Orçamentos:** criação, edição, eliminação, histórico e impressão de orçamentos detalhados.
-- **Produtos:** gestão do stock, criação, edição e desativação de produtos.
-- **Clientes:** criação, edição e desativação de clientes.
-- **Administração:** gestão de administradores, permissões e consulta dos logs.
-- **Perfil:** consulta e edição do perfil do administrador autenticado.
+- **Dashboard:** overview of earnings, project progress, recent actions, and out-of-stock products.
+- **Work sheets:** creation, editing, deletion, history, printing, and photo galleries by section.
+- **Quotes:** creation, editing, deletion, history, and printing of detailed quotes.
+- **Products:** stock management, product creation, editing, and deactivation.
+- **Clients:** client creation, editing, and deactivation.
+- **Administration:** administrator and permission management, and log viewing.
+- **Profile:** viewing and editing the authenticated administrator's profile.
 
-## Tecnologias
+## Technologies
 
-- PHP 7.4 ou superior
+- PHP 7.4 or later
 - MySQL
-- HTML5 e CSS3
+- HTML5 and CSS3
 - JavaScript
 
-## Requisitos
+## Requirements
 
-- PHP com as extensões `mysqli` e `gd` ativadas
-- MySQL 5.7+ ou MariaDB equivalente
-- Servidor web (Apache, Nginx ou o servidor de desenvolvimento do PHP)
-- Base de dados `onemarket` com o respetivo esquema da aplicação
+- PHP with the `mysqli` and `gd` extensions enabled
+- MySQL 5.7+ or an equivalent MariaDB version
+- Web server (Apache, Nginx, or PHP's development server)
+- `onemarket` database with the application's schema
 
-## Instalação
+## Installation
 
-1. Clone ou copie o projeto para a pasta pública do servidor web.
-2. Crie uma base de dados MySQL e importe o esquema da aplicação.
-3. Copie `.env.example` para `.env` e preencha as credenciais:
+1. Clone or copy the project to the web server's public directory.
+2. Create a MySQL database and import the application's schema.
+3. Copy `.env.example` to `.env` and fill in the credentials:
 
    ```env
    DB_HOST=localhost
@@ -40,35 +40,35 @@ Aplicação web para gestão de orçamentos, fichas de trabalho, clientes, produ
    DB_PASSWORD=
    ```
 
-   O ficheiro `.env` é local e não deve ser partilhado nem versionado.
+   The `.env` file is local and must not be shared or committed to version control.
 
-4. Garanta permissões de escrita na pasta `images/uploads/`, utilizada para guardar imagens enviadas pela aplicação.
-5. Inicie o servidor local a partir da raiz do projeto:
+4. Ensure that the `images/uploads/` directory has write permissions; it is used to store images uploaded by the application.
+5. Start the local server from the project root:
 
    ```bash
    php -S localhost:8000
    ```
 
-6. Abra [http://localhost:8000](http://localhost:8000) e autentique-se com um administrador existente na base de dados.
+6. Open [http://localhost:8000](http://localhost:8000) and sign in with an administrator already registered in the database.
 
-## Configuração
+## Configuration
 
-A ligação ao MySQL é feita em `db/conexao.php` através das variáveis do `.env`. Se o ficheiro não existir, são usados os valores locais padrão (`localhost`, base de dados `onemarket`, utilizador `root` e password vazia).
+The MySQL connection is configured in `db/conexao.php` through the `.env` variables. If the file does not exist, the default local values are used (`localhost`, `onemarket` database, `root` user, and an empty password).
 
-## Estrutura principal
+## Main structure
 
 ```text
 .
-├── db/                 # Ligação à base de dados e funções partilhadas
-├── css/                # Folhas de estilo
-├── images/             # Imagens da aplicação e uploads
-├── *.php               # Páginas, formulários e endpoints JSON
-├── .env.example        # Modelo de configuração local
+├── db/                 # Database connection and shared functions
+├── css/                # Stylesheets
+├── images/             # Application images and uploads
+├── *.php               # Pages, forms, and JSON endpoints
+├── .env.example        # Local configuration template
 └── README.md
 ```
 
-## Segurança
+## Security
 
-- Nunca publique o `.env` nem credenciais reais.
-- Use uma password forte para o utilizador MySQL em ambientes que não sejam locais.
-- Faça cópias de segurança regulares da base de dados e da pasta `images/uploads/`.
+- Never publish `.env` or real credentials.
+- Use a strong password for the MySQL user in non-local environments.
+- Make regular backups of the database and the `images/uploads/` directory.
